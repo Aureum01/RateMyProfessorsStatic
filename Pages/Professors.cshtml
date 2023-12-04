@@ -1,0 +1,16 @@
+﻿@page
+@using RateMyProfessorsStatic.Components
+@model RateMyProfessorsStatic.Pages.ProfessorsModel
+@{
+    ViewData["Title"] = "Professors";
+}
+
+@(await Html.RenderComponentAsync<ProfessorList>(RenderMode.ServerPrerendered, new { Professors = Model.Professors }))
+
+<script src="_framework/blazor.server.js"></script>
+<script src="~/js/professorlist.js"></script>
+
+<head>
+    <link rel="stylesheet" href="~/css/professorlist.css" asp-append-version="true" />
+</head>
+

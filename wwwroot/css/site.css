@@ -1,0 +1,63 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.btn-help {
+    position: fixed;
+    bottom: 20px; /* Distance from bottom */
+    left: 20px; /* Distance from right */
+    z-index: 1050; /* Ensure it's above other content */
+    padding: 10px 20px; /* Padding */
+    background-color: #f8f9fa; /* Bootstrap light button color */
+    color: #212529; /* Text color */
+    border: 1px solid #f8f9fa; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor */
+}
+
+.help-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #dc3545; /* Bootstrap danger color */
+    border: 2px solid #fff; /* White border */
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px; /* Font size for badge text */
+    color: #fff; /* Text color for badge */
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}

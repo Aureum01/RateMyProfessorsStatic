@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+<!-- (above) Rendering the blazor components as shown within the startup file -->
+
+<head>
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+</head>
+
+<!-- Add blazor component here to initilize page -->
+
+<div class="search-bar-container">
+    <!-- New Text Container Above Search Bar -->
+    <div class="hero-header">
+        Enter your <span class="rolling-text"><b>professor</b></span> to get started
+    </div>
+
+    <!-- Existing Search Bar Wrapper -->
+    <form asp-controller="Professor" asp-action="Results" method="get">
+        <div class="styled-search-wrapper">
+            <div class="search-icon-wrapper">
+                <!-- Use the SVG shown in index.css -->
+            </div>
+            <div class="search-input-container">
+                <input type="text" name="query" aria-label="search" placeholder="Search for a professor" class="debounced-search-input" id="searchInput">
+                <div id="searchResults" class="search-results-dropdown"></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="~/js/index.js"></script>
+

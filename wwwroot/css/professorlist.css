@@ -1,0 +1,311 @@
+﻿/* Page Animation */
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 25s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Page */
+.sticky-header {
+    position: sticky;
+    margin-top: 10px;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1020;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-info-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.city-state, .college-name {
+    margin-right: 20px;
+}
+
+.city-state {
+    color: #a0a0a0;
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+    word-break: break-word;
+}
+
+.title-container {
+    display: flex;
+    align-items: baseline;
+}
+
+.college-name {
+    font-weight: bold;
+    font-size: 36px;
+    font-family: 'Segoe UI', sans-serif;
+    /* margin-right: 800px; */
+}
+
+/* style for individual search result item */
+.search-result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+    .search-result-item:last-child {
+        border-bottom: none;
+    }
+
+/* Neumorphic Styling for Search Bar in Header */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+    .search-form input[type="text"] {
+        background: #e0e0e0;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 15px;
+        box-shadow: 8px 8px 15px #a7a7a7, -8px -8px 15px #ffffff;
+        width: auto; /* Adjusted from 100% to auto */
+        max-width: 300px; /* Maximum width */
+        margin-right: 10px;
+    }
+
+    .search-form button {
+        padding: 5px 10px;
+        color: white; 
+        border: 3px solid transparent;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative; 
+        overflow: hidden;
+        padding: 5px;
+        transition: color 0.3s ease;
+        /* Gradient background */
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradientBorder 25s ease infinite;
+    }
+
+    .search-form input[type="text"]:focus {
+        outline: none;
+        box-shadow: inset 3px 3px 5px #b8b8b8, inset -3px -3px 5px #ffffff;
+    }
+
+    .search-form button:hover {
+        color: #ddd; 
+    }
+
+
+
+
+
+
+/* Results Container */
+.search-results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* JSON Query Result */
+.professor-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.name-rating {
+    display: flex;
+    align-items: center;
+}
+
+.professor-name, .professor-rating, .professor-department, .latest-comment {
+    margin: 0 10px;
+}
+
+.professor-name {
+    margin-right: 5px; /* Adjust as needed */
+}
+
+
+.professor-rating {
+    color: gold;
+    font-size: 1.2em;
+    padding-left: 40px; /* Adjust as needed */
+}
+
+.latest-comment {
+    font-style: italic;
+}
+
+.rate-button {
+    padding: 5px 10px;
+    color: white; /* Adjust text color for better visibility */
+    border: 3px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative; /* Adjust the position for better acessibility*/
+    overflow: hidden;
+    padding: 5px;
+    transition: color 0.3s ease;
+    /* Gradient background */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBorder 25s ease infinite;
+}
+
+    .rate-button:hover {
+        color: rgba(0, 0, 0, 0.1); /* Adjust hover effect */
+    }
+
+@keyframes gradientBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed; /* Changed from 'center' to 'fixed' for proper positioning */
+    z-index: 1300;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Combined the two background-color properties */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Adjusted for better vertical positioning */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Adjusted width for better layout */
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 20px;
+}
+
+    .modal-header img {
+        border-radius: 50%;
+        width: 150px; /* Added width for consistency */
+        height: 150px; /* Added height for consistency */
+        object-fit: cover; /* Ensures the image fits well in the circular frame */
+    }
+
+.modal-body {
+    display: flex;
+    flex-direction: column; /* Changed to column for vertical stacking */
+    gap: 20px; /* Added gap for spacing between elements */
+}
+
+    .modal-body p {
+        margin: 5px 0;
+        font-size: 16px; /* Increased font size for better readability */
+        color: black; /* Changed color for better readability */
+    }
+
+    .modal-body h3 {
+        margin-top: 15px;
+    }
+
+    .modal-body ul {
+        list-style: inside;
+        padding-left: 0; /* Remove padding for better alignment */
+    }
+
+
+/* Styles for Comment Section */
+.comment-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px; /* Added margin for spacing */
+}
+
+    .comment-section input {
+        /* Styles specific to input elements within comment section */
+        border: 1px solid #ddd;
+        padding: 5px;
+        margin-bottom: 10px; /* Spacing between input fields */
+        width: 100%; /* Full width within container */
+    }
+
+.comment {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px; /* Character limit visual enforcement */
+}
+
+    .comment input {
+        /* Overriding input styles within .comment if needed */
+        border: 1px solid #aaa;
+        padding: 3px;
+        width: 100%; /* Adjust width as necessary */
+    }
+
+
+
+
+
+

@@ -1,0 +1,167 @@
+﻿@inject HttpClient Http
+@using RateMyProfessorsStatic.Models
+@using RateMyProfessorsStatic.Services
+@using Microsoft.AspNetCore.Components.Web
+@inject JsonFileProfessorService ProfessorService
+
+<head>
+    <link rel="stylesheet" href="~/css/professorlist.css" asp-append-version="true" />
+</head>
+
+
+<!-- Header -->
+<header class="sticky-header">
+    <div class="container header-info-container">
+        <!-- Left side content (City-State and College Name) -->
+        <div class="left-side">
+            <span class="city-state">St. Augustine, FL</span>
+            <span class="college-name">Flagler College</span>
+        </div>
+
+        <!-- Right side content (Search Bar) -->
+        <div class="right-side" style="margin-left: auto;">
+            <form asp-controller="Professor" asp-action="Results" method="get" class="search-form">
+                <input type="text" name="query" placeholder="Search for a professor" />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+
+
+
+<div class="search-results-container">
+    @if (!Professors.Any())
+    {
+        <div class="professor-container">
+            <!-- Static Example Container -->
+            <div class="name-rating">
+                <span class="professor-name">Dr. John Doe</span>
+                <span class="professor-rating">★★★★☆</span>
+            </div>
+            <span class="professor-department">Mathematics</span>
+            <span class="latest-comment">"Excellent teaching method."</span>
+            <button class="rate-button" onclick="openModal('John Doe')">Rate Professor</button>
+        </div>
+    }
+    else
+    {
+        @foreach (var professor in Professors)
+        {
+            <div class="professor-container">
+                <div class="name-rating">
+                    <span class="professor-name">@professor.Name</span>
+                    <span class="professor-rating">
+                        @{
+                            var starRating = professor.Ratings?.StarRating ?? 0;
+                            @((MarkupString)(new string('★', (int)starRating) + new string('☆', 5 - (int)starRating)))
+                        }
+                    </span>
+                </div>
+                <span class="professor-department">@professor.Position</span>
+                <span class="latest-comment">
+                    @((professor.Ratings?.TopComment != null && professor.Ratings.TopComment.Any()) ? professor.Ratings.TopComment.FirstOrDefault() : "No comments available")
+                </span>
+                <!-- Commented code omitted for brevity -->
+                <button class="rate-button" id="rateProfessorButton">Rate Professor</button>
+
+            </div>
+        }
+
+    }
+</div>
+
+
+
+
+
+<!-- Modal Structure -->
+<div id="professorModal" class="modal" style="@(IsModalVisible ? "display:block;" : "display:none;")">
+    <div class="modal-content">
+        <span class="close" @onclick="CloseModal">&times;</span>
+        <div class="modal-header">
+            <div class="professor-info">
+                <img src="@(CurrentProfessor?.Photo)" alt="Photo of @(CurrentProfessor?.Name)" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+                <h4 class="mt-2"><b>@(CurrentProfessor?.Name)</b></h4>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="professor-details">
+                <p><strong>Position:</strong> @(CurrentProfessor?.Position)</p>
+                <p><strong>Phone:</strong> @(CurrentProfessor?.Phone)</p>
+                <p><strong>Office:</strong> @(CurrentProfessor?.Office)</p>
+                <p><strong>Rating:</strong> @(CurrentProfessor?.Ratings?.StarRating ?? 0) / 5.0</p>
+            </div>
+            <div class="top-comments mt-3">
+                <h3>Top Comments:</h3>
+                <ul>
+                    @if (CurrentProfessor?.Ratings?.TopComment != null)
+                    {
+                        @foreach (var comment in CurrentProfessor.Ratings.TopComment)
+                        {
+                            <li>@comment</li>
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="comment-section mt-3">
+                <!-- Static Bootstrap Comment Section Until Further Notice -->
+                <p>Comments...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/professorlist.js"></script>
+
+
+@code {
+    [Parameter]
+    public IEnumerable<Professor> Professors { get; set; } = Enumerable.Empty<Professor>();
+
+    private Professor? CurrentProfessor { get; set; } // Use nullable reference type here
+
+    // This property checks if the modal should be visible
+    private bool IsModalVisible { get; set; } = false;
+
+
+    private void OpenModal(string professorId)
+    {
+        // Assuming you have a method to retrieve professor data
+        // You can implement this method to read from your JSON file
+        LoadProfessorDataFromJson(professorId);
+
+        IsModalVisible = true;
+    }
+
+    private void CloseModal()
+    {
+        CurrentProfessor = null;
+        IsModalVisible = false;
+    }
+
+    private void LoadProfessorDataFromJson(string professorId)
+    {
+        try
+        {
+            // Read and parse the JSON data from the file based on professorId
+            // Set the data to CurrentProfessor
+            // You can use Newtonsoft.Json or System.Text.Json for deserialization
+        }
+        catch (Exception ex)
+        {
+            // Handle any exceptions, such as file not found or JSON parsing errors
+            CurrentProfessor = null;
+            Console.WriteLine($"Error loading JSON data: {ex.Message}");
+        }
+    }
+
+    
+}

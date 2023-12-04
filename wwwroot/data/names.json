@@ -1,0 +1,110 @@
+[
+  {
+    "Id": "hhuang",
+    "Name": "Haiyan Huang",
+    "Photo": "https://www.flagler.edu/media/content-types/profiles-335-x-335/profile-haiyan-huang-334x334.jpg",
+    "Position": "Assistant Professor",
+    "Phone": "904-819-6267",
+    "Office": "74 Riberia Street, Room 203",
+    "Ratings": {
+      "StarRating": 4.5,
+      "TopComment": [ "Very knowledgeable" ]
+    }
+  },
+  {
+    "Id": "jwang",
+    "Name": "Jeremy Fei Wang",
+    "Photo": "https://www.flagler.edu/media/content-types/profiles-335-x-335/profile-jeremy-wang-334x334.jpg",
+    "Position": "Associate Professor",
+    "Phone": "904-819-6369",
+    "Office": "74 Riberia Street, Room 202",
+    "Ratings": {
+      "StarRating": 4.5,
+      "TopComment": [ "Helpful course material" ]
+    }
+  },
+  {
+    "Id": "alice-johnson",
+    "Name": "Alice Johnson",
+    "Photo": "https://example.com/images/alice-johnson.jpg",
+    "Position": "Senior Lecturer",
+    "Phone": "345-678-9012",
+    "Office": "Room 103, Building C",
+    "Ratings": {
+      "StarRating": 4.2,
+      "TopComment": [ "Engaging teaching style" ]
+    }
+  },
+  {
+    "Id": "michael-brown",
+    "Name": "Michael Brown",
+    "Photo": "https://example.com/images/michael-brown.jpg",
+    "Position": "Assistant Professor",
+    "Phone": "456-789-0123",
+    "Office": "Room 104, Building D",
+    "Ratings": {
+      "StarRating": 3.5,
+      "TopComment": [ "Good course structure" ]
+    }
+  },
+  {
+    "Id": "lisa-white",
+    "Name": "Lisa White",
+    "Photo": "https://example.com/images/lisa-white.jpg",
+    "Position": "Lecturer",
+    "Phone": "567-890-1234",
+    "Office": "Room 105, Building E",
+    "Ratings": {
+      "StarRating": 4.0,
+      "TopComment": [ "Excellent communication" ]
+    }
+  },
+  {
+    "Id": "david-martin",
+    "Name": "David Martin",
+    "Photo": "https://example.com/images/david-martin.jpg",
+    "Position": "Visiting Professor",
+    "Phone": "678-901-2345",
+    "Office": "Room 106, Building F",
+    "Ratings": {
+      "StarRating": 4.7,
+      "TopComment": [ "Expert in the field"]
+    }
+  },
+  {
+    "Id": "sarah-thomas",
+    "Name": "Sarah Thomas",
+    "Photo": "https://example.com/images/sarah-thomas.jpg",
+    "Position": "Associate Lecturer",
+    "Phone": "789-012-3456",
+    "Office": "Room 107, Building G",
+    "Ratings": {
+      "StarRating": 3.9,
+      "TopComment": [ "Very patient" ]
+    }
+  },
+  {
+    "Id": "kevin-jackson",
+    "Name": "Kevin Jackson",
+    "Photo": "https://example.com/images/kevin-jackson.jpg",
+    "Position": "Emeritus Professor",
+    "Phone": "890-123-4567",
+    "Office": "Room 108, Building H",
+    "Ratings": {
+      "StarRating": 4.3,
+      "TopComment": [ "In-depth knowledge" ]
+    }
+  },
+  {
+    "Id": "emma-miller",
+    "Name": "Emma Miller",
+    "Photo": "https://example.com/images/emma-miller.jpg",
+    "Position": "Research Professor",
+    "Phone": "901-234-5678",
+    "Office": "Room 109, Building I",
+    "Ratings": {
+      "StarRating": 4.6,
+      "TopComment": [ "Innovative research" ]
+    }
+  }
+]
